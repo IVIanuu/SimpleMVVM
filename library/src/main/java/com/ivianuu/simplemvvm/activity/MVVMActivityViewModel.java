@@ -23,6 +23,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.ivianuu.simplemvvm.model.ActivityResult;
+import com.ivianuu.simplemvvm.model.ViewModelLifecycleTransformer;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -48,12 +49,7 @@ public class MVVMActivityViewModel extends AndroidViewModel {
      * will be properly completed when the view model completes.
      */
     protected<T> ObservableTransformer<T, T> bindToLifecycle() {
-        return new ObservableTransformer<T, T>() {
-            @Override
-            public ObservableSource<T> apply(@io.reactivex.annotations.NonNull Observable<T> upstream) {
-                return upstream.takeUntil(cleared);
-            }
-        };
+        return new ViewModelLifecycleTransformer<>(cleared);
     }
 
     /**

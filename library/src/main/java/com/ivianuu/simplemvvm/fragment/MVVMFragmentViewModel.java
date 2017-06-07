@@ -22,6 +22,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.ivianuu.simplemvvm.model.ViewModelLifecycleTransformer;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
@@ -45,12 +47,7 @@ public class MVVMFragmentViewModel extends AndroidViewModel {
      * will be properly completed when the view model completes.
      */
     protected<T> ObservableTransformer<T, T> bindToLifecycle() {
-        return new ObservableTransformer<T, T>() {
-            @Override
-            public ObservableSource<T> apply(@io.reactivex.annotations.NonNull Observable<T> upstream) {
-                return upstream.takeUntil(cleared);
-            }
-        };
+        return new ViewModelLifecycleTransformer<>(cleared);
     }
 
     /**
