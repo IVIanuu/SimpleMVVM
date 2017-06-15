@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ivianuu.simplemvvm.model;
+package com.ivianuu.simplemvvm;
 
 import org.reactivestreams.Publisher;
 

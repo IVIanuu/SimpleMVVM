@@ -18,14 +18,12 @@ package com.ivianuu.simplemvvm.fragment;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.ivianuu.simplemvvm.model.ViewModelLifecycleTransformer;
+import com.ivianuu.simplemvvm.ViewModelLifecycleTransformer;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.subjects.PublishSubject;
 
@@ -63,7 +61,7 @@ public class MVVMFragmentViewModel extends AndroidViewModel {
     /**
      * Emits when new arguments are available
      */
-    protected Observable<Bundle> arguments() {return arguments;}
+    protected Observable<Bundle> arguments() { return arguments; }
 
     @Override
     protected void onCleared() {

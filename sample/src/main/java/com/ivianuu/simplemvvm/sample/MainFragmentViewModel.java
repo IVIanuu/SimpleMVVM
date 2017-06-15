@@ -17,38 +17,25 @@
 package com.ivianuu.simplemvvm.sample;
 
 import android.app.Application;
-import android.content.Intent;
-import android.util.Log;
+import android.os.Bundle;
 
-import com.ivianuu.simplemvvm.activity.MVVMActivityViewModel;
+import com.ivianuu.simplemvvm.fragment.MVVMFragmentViewModel;
 
 import io.reactivex.annotations.NonNull;
-import io.reactivex.observers.DisposableObserver;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author Manuel Wrage (IVIanuu)
  */
+public class MainFragmentViewModel extends MVVMFragmentViewModel {
 
-public class MainActivityViewModel extends MVVMActivityViewModel {
-
-    public MainActivityViewModel(Application application) {
+    public MainFragmentViewModel(Application application) {
         super(application);
 
-        intent().compose(this.<Intent>bindToLifecycle())
-                .subscribeWith(new DisposableObserver<Intent>() {
+        arguments().subscribe(new Consumer<Bundle>() {
                     @Override
-                    public void onNext(@NonNull Intent intent) {
-                        Log.d("testtt", "on next");
-                    }
+                    public void accept(@NonNull Bundle bundle) throws Exception {
 
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Log.d("testtt", "on error");
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        Log.d("testtt", "on complete");
                     }
                 });
     }

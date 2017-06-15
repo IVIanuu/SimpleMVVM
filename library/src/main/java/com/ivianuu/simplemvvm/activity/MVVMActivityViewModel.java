@@ -23,10 +23,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.ivianuu.simplemvvm.model.ActivityResult;
-import com.ivianuu.simplemvvm.model.ViewModelLifecycleTransformer;
+import com.ivianuu.simplemvvm.ViewModelLifecycleTransformer;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.subjects.PublishSubject;
 
@@ -55,12 +54,12 @@ public class MVVMActivityViewModel extends AndroidViewModel {
     /**
      * Call this on every activity result
      */
-    public void activityResult(@NonNull ActivityResult activityResult) {this.activityResult.onNext(activityResult);}
+    public void activityResult(@NonNull ActivityResult activityResult) { this.activityResult.onNext(activityResult); }
 
     /**
      * Emits when a new activity result arrives
      */
-    protected Observable<ActivityResult> activityResult() {return activityResult;}
+    protected Observable<ActivityResult> activityResult() { return activityResult; }
     /**
      * Call this on every new intent
      */
@@ -74,7 +73,7 @@ public class MVVMActivityViewModel extends AndroidViewModel {
     /**
      * Emits when a new intent is available
      */
-    protected Observable<Intent> intent() {return intent;}
+    protected Observable<Intent> intent() { return intent; }
 
     @Override
     protected void onCleared() {
