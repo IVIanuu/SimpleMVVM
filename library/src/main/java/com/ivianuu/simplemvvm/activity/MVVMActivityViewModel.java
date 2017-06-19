@@ -18,6 +18,7 @@ package com.ivianuu.simplemvvm.activity;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
+import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -33,15 +34,11 @@ import io.reactivex.subjects.PublishSubject;
  * @author Manuel Wrage (IVIanuu)
  */
 
-public class MVVMActivityViewModel extends AndroidViewModel {
+public class MVVMActivityViewModel extends ViewModel {
 
     private final PublishSubject<ActivityResult> activityResult = PublishSubject.create();
     private final PublishSubject<Object> cleared = PublishSubject.create();
     private final PublishSubject<Intent> intent = PublishSubject.create();
-
-    public MVVMActivityViewModel(Application application) {
-        super(application);
-    }
 
     /**
      * By composing this transformer with an observable you guarantee that every observable in your view model

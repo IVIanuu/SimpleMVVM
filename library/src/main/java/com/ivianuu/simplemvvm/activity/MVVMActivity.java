@@ -86,7 +86,7 @@ public class MVVMActivity<ViewModelType extends MVVMActivityViewModel>
     }
 
     /**
-     * Completes an observable when the lifecycle event opposing the current lifecyle event is emitted.
+     * Completes an observable when the lifecycle event opposing the current lifecycle event is emitted.
      * For example, if a subscription is made during {@link android.arch.lifecycle.Lifecycle.Event#ON_CREATE}, the observable will be completed
      * in {@link android.arch.lifecycle.Lifecycle.Event#ON_DESTROY}.
      */

@@ -31,9 +31,7 @@ import io.reactivex.observers.DisposableObserver;
 
 public class MainActivityViewModel extends MVVMActivityViewModel {
 
-    public MainActivityViewModel(Application application) {
-        super(application);
-
+    public MainActivityViewModel() {
         intent().compose(this.<Intent>bindToLifecycle())
                 .subscribeWith(new DisposableObserver<Intent>() {
                     @Override

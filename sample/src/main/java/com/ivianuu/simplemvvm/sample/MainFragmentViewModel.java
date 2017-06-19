@@ -29,9 +29,7 @@ import io.reactivex.functions.Consumer;
  */
 public class MainFragmentViewModel extends MVVMFragmentViewModel {
 
-    public MainFragmentViewModel(Application application) {
-        super(application);
-
+    public MainFragmentViewModel() {
         arguments().subscribe(new Consumer<Bundle>() {
                     @Override
                     public void accept(@NonNull Bundle bundle) throws Exception {

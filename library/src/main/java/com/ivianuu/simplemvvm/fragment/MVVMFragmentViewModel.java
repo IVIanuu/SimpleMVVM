@@ -18,6 +18,7 @@ package com.ivianuu.simplemvvm.fragment;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
+import android.arch.lifecycle.ViewModel;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -31,14 +32,10 @@ import io.reactivex.subjects.PublishSubject;
  * @author Manuel Wrage (IVIanuu)
  */
 
-public class MVVMFragmentViewModel extends AndroidViewModel {
+public class MVVMFragmentViewModel extends ViewModel {
 
     private final PublishSubject<Bundle> arguments = PublishSubject.create();
     private final PublishSubject<Object> cleared = PublishSubject.create();
-
-    public MVVMFragmentViewModel(Application application) {
-        super(application);
-    }
 
     /**
      * By composing this transformer with an observable you guarantee that every observable in your view model
