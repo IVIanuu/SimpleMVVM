@@ -22,6 +22,7 @@ import android.arch.lifecycle.LifecycleRegistryOwner;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -48,7 +49,7 @@ public class MVVMFragment<ViewModelType extends MVVMFragmentViewModel> extends F
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!assignViewModelOnActivityCreated()) {
+        if (!assignViewModelAtOnAttach()) {
             // only assign if we should do it here
             assignViewModel();
             viewModel.arguments(getArguments());
@@ -56,10 +57,10 @@ public class MVVMFragment<ViewModelType extends MVVMFragmentViewModel> extends F
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
-        if (assignViewModelOnActivityCreated()) {
+        if (assignViewModelAtOnAttach()) {
             // only assign if we should do it here
             assignViewModel();
             viewModel.arguments(getArguments());
@@ -117,7 +118,7 @@ public class MVVMFragment<ViewModelType extends MVVMFragmentViewModel> extends F
      * In case you using dependency injection you probably want to override this and return true
      * Because by default we assign our view model in on create
      */
-    protected boolean assignViewModelOnActivityCreated() {
+    protected boolean assignViewModelAtOnAttach() {
         return false;
     }
 
