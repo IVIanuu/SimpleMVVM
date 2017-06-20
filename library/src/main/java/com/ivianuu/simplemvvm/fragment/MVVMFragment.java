@@ -49,22 +49,8 @@ public class MVVMFragment<ViewModelType extends MVVMFragmentViewModel> extends F
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!assignViewModelAtOnAttach()) {
-            // only assign if we should do it here
-            assignViewModel();
-            viewModel.arguments(getArguments());
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        if (assignViewModelAtOnAttach()) {
-            // only assign if we should do it here
-            assignViewModel();
-            viewModel.arguments(getArguments());
-        }
+        assignViewModel();
+        viewModel.arguments(getArguments());
     }
 
     /**
@@ -112,14 +98,6 @@ public class MVVMFragment<ViewModelType extends MVVMFragmentViewModel> extends F
      */
     protected ViewModelProvider.Factory getViewModelFactory() {
         return null;
-    }
-
-    /**
-     * In case you using dependency injection you probably want to override this and return true
-     * Because by default we assign our view model in on create
-     */
-    protected boolean assignViewModelAtOnAttach() {
-        return false;
     }
 
     @Override
