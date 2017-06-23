@@ -73,8 +73,8 @@ public class DetailActivity extends MVVMActivity<DetailActivityViewModel> {
 
      @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+       
+        ...
 	
 	viewModel.loadData()
                 .compose(bindToLifecycle()) // will complete the observable in onDestroy
