@@ -126,7 +126,7 @@ You can observe new intents and activity results in your activity view models.
     }
 ```
 
-In fragments you can observe arguments.
+In fragment view model you can observe arguments.
 
 ```java
  public class ProfileFragmentViewModel extends MVVMFragmentViewModel {
