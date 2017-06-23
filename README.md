@@ -5,13 +5,13 @@ Base MVVM implementation for android inspired by kickstarter.
 This library uses the architecture component internally.
 Learn more: https://developer.android.com/topic/libraries/architecture/viewmodel.html
 
-
 ## Download
 ```groovy
 dependencies {
 	 compile 'com.github.IVIanuu:SimpleMVVM:LATEST-VERSION'
 }
 ```
+
 ## Usage
 
 This example uses a activity but it works the same for fragments(Just replace Activity with Fragment).
