@@ -63,7 +63,7 @@ public class LoginActivity extends MVVMActivity<LoginActivityViewModel> {
     }
 }
 ```
-The library is meant to be used with rxjava and for convenience it includes RxLifecycle from trello so you can easily bind your observables to the lifecycle of your activities, fragments or view models. This should look like the following
+The library is meant to be used with rxjava and for convenience it includes RxLifecycle from trello so you can easily bind your observables to the lifecycle of your activities, fragments or view models. This should look like the following.
 
 ```java
 @RequiresActivityViewModel(DetailActivityViewModel.class)
@@ -81,7 +81,7 @@ public class DetailActivity extends MVVMActivity<DetailActivityViewModel> {
     }
 }
 ```
-In view models the observable completes in onCleared which will be called when your activity or fragment will be destroyed
+In view models the observable completes in onCleared which will be called when your activity or fragment will be destroyed.
 
 ```java
 public class DetailActivityViewModel extends MVVMActivityViewModel {
@@ -101,7 +101,7 @@ public class DetailActivityViewModel extends MVVMActivityViewModel {
 }
 ```
 
-You can observe new intents and activity results in your activity view models
+You can observe new intents and activity results in your activity view models.
 
 ```java
  public class CommentActivityViewModel extends MVVMActivityViewModel {
@@ -126,7 +126,7 @@ You can observe new intents and activity results in your activity view models
     }
 ```
 
-In fragments you can observe arguments
+In fragments you can observe arguments.
 
 ```java
  public class ProfileFragmentViewModel extends MVVMFragmentViewModel {
