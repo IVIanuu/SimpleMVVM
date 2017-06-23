@@ -101,7 +101,7 @@ public class MVVMActivity<ViewModelType extends MVVMActivityViewModel>
             throw new IllegalStateException("class needs RequiresActivityViewModel annotation");
         }
 
-        ViewModelProvider.Factory viewModelFactory = getViewModelFactory();
+        ViewModelProvider.Factory viewModelFactory = provideViewModelFactory();
         if (viewModelFactory != null) {
             // we use the provided view model factory
             viewModel = ViewModelProviders.of(this, viewModelFactory).get(viewModelClass);
@@ -114,7 +114,7 @@ public class MVVMActivity<ViewModelType extends MVVMActivityViewModel>
     /**
      * Override this method to provide your own view model factory
      */
-    protected ViewModelProvider.Factory getViewModelFactory() {
+    protected ViewModelProvider.Factory provideViewModelFactory() {
         return null;
     }
 
