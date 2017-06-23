@@ -7,6 +7,16 @@ Learn more: https://developer.android.com/topic/libraries/architecture/viewmodel
 
 ## Download
 ```groovy
+// in your root gradle
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+
+```groovy
 dependencies {
 	 compile 'com.github.IVIanuu:SimpleMVVM:LATEST-VERSION'
 }
