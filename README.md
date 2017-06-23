@@ -2,7 +2,9 @@
 Base MVVM implementation for android inspired by kickstarter.
 
 ## Introduction
-This library uses the architecture component implementation.
+This library uses the architecture component internally.
+Learn more: https://developer.android.com/topic/libraries/architecture/viewmodel.html
+
 
 ## Download
 ```groovy
