@@ -23,7 +23,7 @@ public class LoginActivityViewModel extends MVVMActivityViewModel {
     }
     
     public void login() {
-    // todo implement login
+      // todo implement login
     }
 }
 ```
@@ -31,7 +31,7 @@ public class LoginActivityViewModel extends MVVMActivityViewModel {
 Then create your activity class. The activity needs to extend SimpleMVVMActivity<MyViewModel>
 and must be annotated with a @RequiresActivityViewModel(MyViewModel.class) annotation(This view model will automatically be attached)
 
-´´´java
+```java
 @RequiresActivityViewModel(LoginActivityViewModel.class)
 public class LoginActivity extends MVVMActivity<LoginActivityViewModel> {
 
@@ -43,14 +43,18 @@ public class LoginActivity extends MVVMActivity<LoginActivityViewModel> {
         // use your view model here
 	viewModel.login();
     }
+    
+    ...
+    
 }
-´´´
+```
 By default the library will use the default ViewModelProvider.Factory. 
 If you want to use your own (For example to inject dependencies in your view model via dagger) you have to override the 
 
-´´´java
+```java
 @RequiresActivityViewModel(LoginActivityViewModel.class)
 public class LoginActivity extends MVVMActivity<LoginActivityViewModel> {
+
     ...
 
     @Override
@@ -58,6 +62,5 @@ public class LoginActivity extends MVVMActivity<LoginActivityViewModel> {
         return mySuperCoolViewModelFactory;
     }
 }
-
-´´´
+```
 
