@@ -14,5 +14,10 @@ public class MainActivity extends MVVMActivity<MainActivityViewModel> {
         setIntent(new Intent()); // dummy
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.content_container, new MainFragment()).commit();
+        }
     }
 }

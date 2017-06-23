@@ -18,6 +18,7 @@ package com.ivianuu.simplemvvm.sample;
 
 import android.app.Application;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.ivianuu.simplemvvm.fragment.MVVMFragmentViewModel;
 
@@ -30,11 +31,18 @@ import io.reactivex.functions.Consumer;
 public class MainFragmentViewModel extends MVVMFragmentViewModel {
 
     public MainFragmentViewModel() {
+        Log.d("testtt", "init");
         arguments().subscribe(new Consumer<Bundle>() {
                     @Override
                     public void accept(@NonNull Bundle bundle) throws Exception {
 
                     }
                 });
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        Log.d("testtt", "cleared");
     }
 }
