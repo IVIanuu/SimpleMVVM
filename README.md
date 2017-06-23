@@ -12,7 +12,7 @@ dependencies {
 ```
 ## Usage
 
-For activities.
+This example uses a activity but it works the same for fragments(Just replace Activity with Fragment).
 
 First create a view model it needs to extend SimpleMVVMActivityViewModel.
 ```java
@@ -63,4 +63,39 @@ public class LoginActivity extends MVVMActivity<LoginActivityViewModel> {
     }
 }
 ```
+The library is meant to be used with rxjava and for convenience it includes RxLifecycle from trello so you can easily bind your observables to the lifecycle of your activities, fragments or view models. This should look like the following
+```java
+@RequiresActivityViewModel(DetailActivityViewModel.class)
+public class DetailActivity extends MVVMActivity<DetailActivityViewModel> {
 
+     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+	
+	viewModel.loadData()
+                .compose(bindToLifecycle()) // will complete the observable in onDestroy
+		.bindUntilEvent(Lifecycle.Event.ON_PAUSE) // will complete the observable in onPause
+                .subscribe()
+    }
+}
+```
+In view models the observable completes in onCleared which will be called when your activity or fragment will be destroyed
+
+```java
+public class DetailActivityViewModel extends MVVMActivityViewModel {
+
+    private final MyCoolRepository repo;
+
+    @Inject
+    public DetailActivityViewModel(@NonNull MyCoolRepository repo) {
+           this.repo = repo;
+	
+	   repo.loadDetails()
+                .compose(bindToLifecycle()) // will complete the observable onCleared
+                .subscribe(data -> {
+                    // do something cool with your data
+                });
+    }
+}
+```
