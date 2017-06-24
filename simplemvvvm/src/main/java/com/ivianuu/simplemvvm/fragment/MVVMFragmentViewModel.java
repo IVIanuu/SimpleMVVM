@@ -16,8 +16,6 @@
 
 package com.ivianuu.simplemvvm.fragment;
 
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.ViewModel;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,7 +23,6 @@ import android.support.annotation.Nullable;
 import com.ivianuu.simplemvvm.ViewModelLifecycleTransformer;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableTransformer;
 import io.reactivex.subjects.PublishSubject;
 
 /**
@@ -41,7 +38,7 @@ public class MVVMFragmentViewModel extends ViewModel {
      * By composing this transformer with an observable you guarantee that every observable in your view model
      * will be properly completed when the view model completes.
      */
-    protected<T> ObservableTransformer<T, T> bindToLifecycle() {
+    protected<T> ViewModelLifecycleTransformer<T> bindToLifecycle() {
         return new ViewModelLifecycleTransformer<>(cleared);
     }
 

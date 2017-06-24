@@ -19,19 +19,17 @@ package com.ivianuu.simplemvvm.fragment;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleRegistry;
 import android.arch.lifecycle.LifecycleRegistryOwner;
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import com.trello.lifecycle2.android.lifecycle.AndroidLifecycle;
 import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableTransformer;
 
 /**
  * @author Manuel Wrage (IVIanuu)
@@ -63,7 +61,7 @@ public class MVVMFragment<ViewModelType extends MVVMFragmentViewModel> extends F
     /**
      * Completes an observable when an {@link android.arch.lifecycle.Lifecycle.Event} occurs in the activity's lifecycle.
      */
-    protected final <T> ObservableTransformer<T, T> bindUntilEvent(final Lifecycle.Event event) {
+    protected final <T> LifecycleTransformer<T> bindUntilEvent(final Lifecycle.Event event) {
         return provider.bindUntilEvent(event);
     }
 
@@ -72,7 +70,7 @@ public class MVVMFragment<ViewModelType extends MVVMFragmentViewModel> extends F
      * For example, if a subscription is made during {@link android.arch.lifecycle.Lifecycle.Event#ON_CREATE}, the observable will be completed
      * in {@link android.arch.lifecycle.Lifecycle.Event#ON_DESTROY}.
      */
-    protected final <T> ObservableTransformer<T, T> bindToLifecycle() {
+    protected final <T> LifecycleTransformer<T> bindToLifecycle() {
         return provider.bindToLifecycle();
     }
 

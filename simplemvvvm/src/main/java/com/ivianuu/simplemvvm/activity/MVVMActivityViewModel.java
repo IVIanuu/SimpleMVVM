@@ -16,18 +16,15 @@
 
 package com.ivianuu.simplemvvm.activity;
 
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.ivianuu.simplemvvm.model.ActivityResult;
 import com.ivianuu.simplemvvm.ViewModelLifecycleTransformer;
+import com.ivianuu.simplemvvm.model.ActivityResult;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableTransformer;
 import io.reactivex.subjects.PublishSubject;
 
 /**
@@ -44,7 +41,7 @@ public class MVVMActivityViewModel extends ViewModel {
      * By composing this transformer with an observable you guarantee that every observable in your view model
      * will be properly completed when the view model completes.
      */
-    protected<T> ObservableTransformer<T, T> bindToLifecycle() {
+    protected<T> ViewModelLifecycleTransformer<T> bindToLifecycle() {
         return new ViewModelLifecycleTransformer<>(cleared);
     }
 

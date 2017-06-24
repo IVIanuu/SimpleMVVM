@@ -16,8 +16,6 @@
 
 package com.ivianuu.simplemvvm.fragment;
 
-import com.ivianuu.simplemvvm.activity.MVVMActivityViewModel;
-
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

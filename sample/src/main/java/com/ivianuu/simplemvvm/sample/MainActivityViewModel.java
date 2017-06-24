@@ -21,8 +21,10 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.ivianuu.simplemvvm.activity.MVVMActivityViewModel;
+import com.ivianuu.simplemvvm.model.ActivityResult;
 
 import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Predicate;
 import io.reactivex.observers.DisposableObserver;
 
 /**

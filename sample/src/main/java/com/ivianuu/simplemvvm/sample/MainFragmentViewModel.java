@@ -22,16 +22,16 @@ import android.util.Log;
 
 import com.ivianuu.simplemvvm.fragment.MVVMFragmentViewModel;
 
+import io.reactivex.BackpressureStrategy;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
 /**
  * @author Manuel Wrage (IVIanuu)
  */
-public class MainFragmentViewModel extends MVVMFragmentViewModel {
+class MainFragmentViewModel extends MVVMFragmentViewModel {
 
     public MainFragmentViewModel() {
-        Log.d("testtt", "init");
         arguments().subscribe(new Consumer<Bundle>() {
                     @Override
                     public void accept(@NonNull Bundle bundle) throws Exception {
@@ -43,6 +43,5 @@ public class MainFragmentViewModel extends MVVMFragmentViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        Log.d("testtt", "cleared");
     }
 }
