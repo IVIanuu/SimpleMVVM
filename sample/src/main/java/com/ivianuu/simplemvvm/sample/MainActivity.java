@@ -1,7 +1,5 @@
 package com.ivianuu.simplemvvm.sample;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 

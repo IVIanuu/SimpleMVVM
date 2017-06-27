@@ -16,13 +16,10 @@
 
 package com.ivianuu.simplemvvm.sample;
 
-import android.app.Application;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.ivianuu.simplemvvm.fragment.MVVMFragmentViewModel;
 
-import io.reactivex.BackpressureStrategy;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
@@ -40,8 +37,4 @@ class MainFragmentViewModel extends MVVMFragmentViewModel {
                 });
     }
 
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-    }
 }

@@ -34,7 +34,7 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import io.reactivex.Observable;
 
 /**
- * @author Manuel Wrage (IVIanuu)
+ * MVVM Activity which assigns the give view model
  */
 
 public class MVVMActivity<ViewModelType extends MVVMActivityViewModel>

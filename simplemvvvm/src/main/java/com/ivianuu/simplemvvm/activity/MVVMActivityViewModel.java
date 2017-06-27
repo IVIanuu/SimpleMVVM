@@ -28,7 +28,7 @@ import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
 
 /**
- * @author Manuel Wrage (IVIanuu)
+ * Activity view model
  */
 
 public class MVVMActivityViewModel extends ViewModel {
@@ -54,6 +54,7 @@ public class MVVMActivityViewModel extends ViewModel {
      * Emits when a new activity result arrives
      */
     protected Observable<ActivityResult> activityResult() { return activityResult; }
+
     /**
      * Call this on every new intent
      */

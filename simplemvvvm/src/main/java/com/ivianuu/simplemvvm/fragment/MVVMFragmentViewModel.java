@@ -26,7 +26,7 @@ import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
 
 /**
- * @author Manuel Wrage (IVIanuu)
+ * Fragment view model
  */
 
 public class MVVMFragmentViewModel extends ViewModel {

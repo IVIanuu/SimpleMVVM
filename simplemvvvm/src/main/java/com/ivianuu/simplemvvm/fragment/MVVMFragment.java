@@ -32,9 +32,8 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import io.reactivex.Observable;
 
 /**
- * @author Manuel Wrage (IVIanuu)
+ * MVVM Fragment which assigns the given view model type
  */
-
 public class MVVMFragment<ViewModelType extends MVVMFragmentViewModel> extends Fragment implements LifecycleRegistryOwner {
 
     private final LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);

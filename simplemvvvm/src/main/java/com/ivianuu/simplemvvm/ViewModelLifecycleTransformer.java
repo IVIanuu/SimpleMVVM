@@ -35,7 +35,9 @@ import io.reactivex.ObservableTransformer;
 import io.reactivex.Single;
 import io.reactivex.SingleSource;
 import io.reactivex.SingleTransformer;
+import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
+import io.reactivex.processors.PublishProcessor;
 
 import static com.trello.rxlifecycle2.internal.Preconditions.checkNotNull;
 

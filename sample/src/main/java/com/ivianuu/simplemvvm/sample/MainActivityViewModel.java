@@ -16,16 +16,13 @@
 
 package com.ivianuu.simplemvvm.sample;
 
-import android.app.Application;
 import android.content.Intent;
-import android.util.Log;
 
 import com.ivianuu.simplemvvm.activity.MVVMActivityViewModel;
 import com.ivianuu.simplemvvm.model.ActivityResult;
 
 import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Predicate;
-import io.reactivex.observers.DisposableObserver;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author Manuel Wrage (IVIanuu)
@@ -34,21 +31,21 @@ import io.reactivex.observers.DisposableObserver;
 public class MainActivityViewModel extends MVVMActivityViewModel {
 
     public MainActivityViewModel() {
-        intent().compose(this.<Intent>bindToLifecycle())
-                .subscribeWith(new DisposableObserver<Intent>() {
+        intent()
+                .compose(this.<Intent>bindToLifecycle())
+                .subscribe(new Consumer<Intent>() {
                     @Override
-                    public void onNext(@NonNull Intent intent) {
-                        Log.d("testtt", "on next");
-                    }
+                    public void accept(@NonNull Intent intent) throws Exception {
 
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Log.d("testtt", "on error");
                     }
+                });
 
+        activityResult()
+                .compose(this.<ActivityResult>bindToLifecycle())
+                .subscribe(new Consumer<ActivityResult>() {
                     @Override
-                    public void onComplete() {
-                        Log.d("testtt", "on complete");
+                    public void accept(@NonNull ActivityResult activityResult) throws Exception {
+
                     }
                 });
     }
