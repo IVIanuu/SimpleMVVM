@@ -44,14 +44,13 @@ import static com.trello.rxlifecycle2.internal.Preconditions.checkNotNull;
 /**
  * @author Manuel Wrage (IVIanuu)
  */
-
 public final class ViewModelLifecycleTransformer<T> implements ObservableTransformer<T, T>,
         FlowableTransformer<T, T>,
         SingleTransformer<T, T>,
         MaybeTransformer<T, T>,
         CompletableTransformer {
 
-    final Observable<?> observable;
+    private final Observable<?> observable;
 
     public ViewModelLifecycleTransformer(Observable<?> observable) {
         checkNotNull(observable, "observable == null");
