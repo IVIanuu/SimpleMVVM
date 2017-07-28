@@ -4,12 +4,12 @@ apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.ivianuu'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -26,15 +26,15 @@ android {
 
 dependencies {
     // Android Support
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:26.0.0'
 
     // Architecture Components
-    compile "android.arch.lifecycle:runtime:1.0.0-alpha3"
-    compile "android.arch.lifecycle:extensions:1.0.0-alpha3"
-    annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha3"
+    compile "android.arch.lifecycle:runtime:1.0.0-alpha7"
+    compile "android.arch.lifecycle:extensions:1.0.0-alpha7"
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha7"
 
     // RxJava
-    compile "io.reactivex.rxjava2:rxjava:2.1.0"
+    compile "io.reactivex.rxjava2:rxjava:2.1.1"
 
     // RxLifecycle
     compile 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.1.0'
