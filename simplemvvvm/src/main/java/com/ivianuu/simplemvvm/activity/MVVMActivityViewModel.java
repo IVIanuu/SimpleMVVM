@@ -18,6 +18,7 @@ package com.ivianuu.simplemvvm.activity;
 
 import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
+import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -47,12 +48,13 @@ public class MVVMActivityViewModel extends ViewModel {
 
     /**
      * Call this on every activity result
-     */
+     **
     public void activityResult(@NonNull ActivityResult activityResult) { this.activityResult.onNext(activityResult); }
 
     /**
      * Emits when a new activity result arrives
      */
+    @CheckResult @NonNull
     protected Observable<ActivityResult> activityResult() { return activityResult; }
 
     /**
@@ -68,6 +70,7 @@ public class MVVMActivityViewModel extends ViewModel {
     /**
      * Emits when a new intent is available
      */
+    @CheckResult @NonNull
     protected Observable<Intent> intent() { return intent; }
 
     @Override

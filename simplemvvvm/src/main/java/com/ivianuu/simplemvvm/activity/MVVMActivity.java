@@ -23,6 +23,8 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.CheckResult;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -74,6 +76,7 @@ public class MVVMActivity<ViewModelType extends MVVMActivityViewModel>
     /**
      * Returns an observable of the activity's lifecycle events.
      */
+    @CheckResult @NonNull
     protected final Observable<Lifecycle.Event> lifecycle() {
         return provider.lifecycle();
     }
@@ -81,6 +84,7 @@ public class MVVMActivity<ViewModelType extends MVVMActivityViewModel>
     /**
      * Completes an observable when an {@link android.arch.lifecycle.Lifecycle.Event} occurs in the activity's lifecycle.
      */
+    @NonNull
     protected final <T> LifecycleTransformer<T> bindUntilEvent(final Lifecycle.Event event) {
         return provider.bindUntilEvent(event);
     }
@@ -90,6 +94,7 @@ public class MVVMActivity<ViewModelType extends MVVMActivityViewModel>
      * For example, if a subscription is made during {@link android.arch.lifecycle.Lifecycle.Event#ON_CREATE}, the observable will be completed
      * in {@link android.arch.lifecycle.Lifecycle.Event#ON_DESTROY}.
      */
+    @NonNull
     protected final <T> LifecycleTransformer<T> bindToLifecycle() {
         return provider.bindToLifecycle();
     }

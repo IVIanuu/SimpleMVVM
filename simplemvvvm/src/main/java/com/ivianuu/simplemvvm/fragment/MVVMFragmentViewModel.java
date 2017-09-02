@@ -18,6 +18,8 @@ package com.ivianuu.simplemvvm.fragment;
 
 import android.arch.lifecycle.ViewModel;
 import android.os.Bundle;
+import android.support.annotation.CheckResult;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.ivianuu.simplemvvm.ViewModelLifecycleTransformer;
@@ -55,6 +57,7 @@ public class MVVMFragmentViewModel extends ViewModel {
     /**
      * Emits when new arguments are available
      */
+    @CheckResult @NonNull
     protected Observable<Bundle> arguments() { return arguments; }
 
     @Override
