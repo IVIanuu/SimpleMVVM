@@ -40,7 +40,7 @@ import io.reactivex.functions.Function;
 import static com.trello.rxlifecycle2.internal.Preconditions.checkNotNull;
 
 /**
- * @author Manuel Wrage (IVIanuu)
+ * View model lifecycle transformer
  */
 public final class ViewModelLifecycleTransformer<T> implements ObservableTransformer<T, T>,
         FlowableTransformer<T, T>,

@@ -27,9 +27,9 @@ import android.support.annotation.Nullable;
 
 public final class ActivityResult {
 
-    private int requestCode;
-    private int resultCode;
-    private Intent intent;
+    private final int requestCode;
+    private final int resultCode;
+    private final Intent intent;
 
     private ActivityResult(int requestCode, int resultCode, @Nullable Intent intent) {
         this.requestCode = requestCode;
@@ -37,30 +37,50 @@ public final class ActivityResult {
         this.intent = intent;
     }
 
-    public static @NonNull ActivityResult create(final int requestCode, final int resultCode, final @Nullable Intent intent) {
+    @NonNull
+    public static ActivityResult create(final int requestCode, final int resultCode, final @Nullable Intent intent) {
         return new ActivityResult(requestCode, resultCode, intent);
     }
 
+    /**
+     * Returns the request code
+     */
     public int getRequestCode() {
         return requestCode;
     }
 
+    /**
+     * Returns the result code
+     */
     public int getResultCode() {
         return resultCode;
     }
 
+    /**
+     * Returns the intent
+     */
+    @Nullable
     public Intent getIntent() {
         return intent;
     }
 
+    /**
+     * Returns whether canceled
+     */
     public boolean isCanceled() {
         return resultCode == Activity.RESULT_CANCELED;
     }
 
+    /**
+     * Returns whether ok
+     */
     public boolean isOk() {
         return resultCode == Activity.RESULT_OK;
     }
 
+    /**
+     * Returns whether the passed request code equals this request code
+     */
     public boolean isRequestCode(final int requestCode) {
         return this.requestCode == requestCode;
     }

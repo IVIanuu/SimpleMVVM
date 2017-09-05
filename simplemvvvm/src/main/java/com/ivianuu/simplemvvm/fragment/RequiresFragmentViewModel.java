@@ -16,6 +16,8 @@
 
 package com.ivianuu.simplemvvm.fragment;
 
+import android.support.annotation.NonNull;
+
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -27,5 +29,6 @@ import java.lang.annotation.RetentionPolicy;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RequiresFragmentViewModel {
+    @NonNull
     Class<? extends MVVMFragmentViewModel> value();
 }

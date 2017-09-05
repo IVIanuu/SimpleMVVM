@@ -40,6 +40,7 @@ public class MVVMFragmentViewModel extends ViewModel {
      * By composing this transformer with an observable you guarantee that every observable in your view model
      * will be properly completed when the view model completes.
      */
+    @NonNull
     protected<T> ViewModelLifecycleTransformer<T> bindToLifecycle() {
         return new ViewModelLifecycleTransformer<>(cleared);
     }

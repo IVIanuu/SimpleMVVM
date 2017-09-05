@@ -119,6 +119,7 @@ public class MVVMActivity<ViewModelType extends MVVMActivityViewModel>
     /**
      * Override this method to provide your own view model factory
      */
+    @Nullable
     protected ViewModelProvider.Factory provideViewModelFactory() {
         return null;
     }

@@ -48,7 +48,7 @@ public class MVVMActivityViewModel extends ViewModel {
 
     /**
      * Call this on every activity result
-     **
+     */
     public void activityResult(@NonNull ActivityResult activityResult) { this.activityResult.onNext(activityResult); }
 
     /**
