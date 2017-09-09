@@ -35,7 +35,6 @@ import io.reactivex.ObservableTransformer;
 import io.reactivex.Single;
 import io.reactivex.SingleSource;
 import io.reactivex.SingleTransformer;
-import io.reactivex.functions.Function;
 
 import static com.trello.rxlifecycle2.internal.Preconditions.checkNotNull;
 
@@ -77,12 +76,8 @@ public final class ViewModelLifecycleTransformer<T> implements ObservableTransfo
 
     @Override
     public CompletableSource apply(Completable upstream) {
-        return Completable.ambArray(upstream, observable.flatMapCompletable(new Function<Object, Completable>() {
-            @Override
-            public Completable apply(Object ignore) throws Exception {
-                return Completable.error(new CancellationException());
-            }
-        }));
+        return Completable.ambArray(upstream, observable.flatMapCompletable(
+                ignore -> Completable.error(new CancellationException())));
     }
 
     @Override

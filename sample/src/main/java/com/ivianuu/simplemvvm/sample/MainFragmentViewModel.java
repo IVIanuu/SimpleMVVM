@@ -16,12 +16,7 @@
 
 package com.ivianuu.simplemvvm.sample;
 
-import android.os.Bundle;
-
 import com.ivianuu.simplemvvm.fragment.MVVMFragmentViewModel;
-
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
 
 /**
  * @author Manuel Wrage (IVIanuu)
@@ -29,12 +24,9 @@ import io.reactivex.functions.Consumer;
 class MainFragmentViewModel extends MVVMFragmentViewModel {
 
     public MainFragmentViewModel() {
-        arguments().subscribe(new Consumer<Bundle>() {
-                    @Override
-                    public void accept(@NonNull Bundle bundle) throws Exception {
+        arguments().subscribe(bundle -> {
 
-                    }
-                });
+        });
     }
 
 }

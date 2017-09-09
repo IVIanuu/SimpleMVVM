@@ -26,12 +26,17 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     // Android Support
-    compile 'com.android.support:appcompat-v7:26.0.2'
+    implementation 'com.android.support:appcompat-v7:26.0.2'
 
     // ViewModel
-    compile project(':simplemvvvm')
+    implementation project(':simplemvvvm')
 }

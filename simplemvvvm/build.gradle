@@ -13,22 +13,27 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     // Android Support
-    compile 'com.android.support:appcompat-v7:26.0.2'
+    api 'com.android.support:appcompat-v7:26.0.2'
 
     // Architecture Components
-    compile "android.arch.lifecycle:runtime:1.0.0-alpha9"
-    compile "android.arch.lifecycle:extensions:1.0.0-alpha9"
+    api "android.arch.lifecycle:runtime:1.0.0-alpha9"
+    api "android.arch.lifecycle:extensions:1.0.0-alpha9"
     annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha9"
 
     // RxJava
-    compile "io.reactivex.rxjava2:rxjava:2.1.2"
+    api "io.reactivex.rxjava2:rxjava:2.1.2"
 
     // RxLifecycle
-    compile 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.1.0'
+    api 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.1.0'
 }
 
 // build a jar with source files

@@ -21,9 +21,6 @@ import android.content.Intent;
 import com.ivianuu.simplemvvm.activity.MVVMActivityViewModel;
 import com.ivianuu.simplemvvm.model.ActivityResult;
 
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
-
 /**
  * @author Manuel Wrage (IVIanuu)
  */
@@ -33,20 +30,14 @@ public class MainActivityViewModel extends MVVMActivityViewModel {
     public MainActivityViewModel() {
         intent()
                 .compose(this.<Intent>bindToLifecycle())
-                .subscribe(new Consumer<Intent>() {
-                    @Override
-                    public void accept(@NonNull Intent intent) throws Exception {
+                .subscribe(intent -> {
 
-                    }
                 });
 
         activityResult()
                 .compose(this.<ActivityResult>bindToLifecycle())
-                .subscribe(new Consumer<ActivityResult>() {
-                    @Override
-                    public void accept(@NonNull ActivityResult activityResult) throws Exception {
+                .subscribe(activityResult -> {
 
-                    }
                 });
     }
 }

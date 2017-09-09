@@ -38,7 +38,6 @@ import io.reactivex.Observable;
 /**
  * MVVM Activity which assigns the give view model
  */
-
 public class MVVMActivity<ViewModelType extends MVVMActivityViewModel>
         extends AppCompatActivity implements LifecycleRegistryOwner {
 
